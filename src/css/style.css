@@ -1,0 +1,183 @@
+@import url("../fonts/Montserrat/stylesheets.css");
+
+:root {
+    --main-bg-color: #ED6666;
+    --accent-color: #6BBDEB;
+    --font-white: #ffffff;
+    --font-black: #000000;
+    --gradient-second-color: #C15555;
+}
+
+/* Сброс */
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* База */
+html{
+    font-family: "Montserrat", sans-serif;
+    color: var(--font-white);
+}
+
+h1{
+    font-size: 4rem;
+    line-height: 4rem;
+    font-weight: 800;
+}
+
+h2{
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 800;
+}
+
+p{
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 400;
+    font-style: italic;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+li {
+    list-style-type: none;
+}
+
+.container{
+    width: min(100%, 1320px);
+    padding-inline: 20px;
+    height: 100%;
+}
+
+/* Header */
+.header{
+    background-color: var(--accent-color);
+
+    width: 100%;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+    
+    &>.container{
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.header__toggler{
+    position: absolute;
+    z-index: 10;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 86px;
+    height: 32px;
+    opacity: 0;
+}
+
+.header__toggler:checked ~ .header__menu{
+    transform: scale(1);
+}
+
+.header__logo{
+    position: relative;
+
+    &::before{
+        content: "С.Д.";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(100%, -50%);
+        font-weight: 800;
+        padding-left: 5px;
+    }
+}
+
+.header__burger-icon{
+    position: relative;
+    
+    &::before{
+        content: "меню";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(-100%, -50%);
+        font-weight: 800;
+        padding-right: 5px;
+    }
+}
+
+.header__menu {
+    position: fixed;
+    right: 0;
+    top: 72px;
+    transform: scale(0);
+    z-index: 100;
+    
+    background-color: var(--accent-color);
+
+    height: calc(100dvh - 72px);
+    width: 100%;
+    padding: 20px;
+
+    transform-origin: top right;
+
+    transition: transform 0.3s ease-in-out;
+}
+
+/* House */
+.house{
+    background: radial-gradient(50.00% 50.00% at 50% 50%, var(--main-bg-color), var(--gradient-second-color) 100%);
+
+    height: 100dvh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    text-align: center;
+
+    &>.container {
+        position: relative;
+    }
+}
+
+.house__title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.house__text{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    white-space: nowrap;
+}
+
+.header__menu-link {
+    display: inline-block;
+    margin-block: 20px;
+
+    font-size: 30px;
+    text-align: right;
+    
+    width: 100%;
+}
